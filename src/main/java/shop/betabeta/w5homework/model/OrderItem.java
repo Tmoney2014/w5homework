@@ -17,11 +17,11 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "ORDER_ID", nullable= false)
+    @JoinColumn(name = "ORDER_ID", nullable= false) //orderitem 이 orders 를 갖고 있다.  DATABASS 적인 생각
     private Orders orders;
 
     @ManyToOne
-    @JoinColumn(name = "FOOD_ID", nullable= false)
+    @JoinColumn(name = "FOOD_ID", nullable= false) //manytomany 를 사용 하면 아래 퀀티티나 프라이스를 같이 넣지 못한다
     private Food food;
 
     @Column

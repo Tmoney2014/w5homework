@@ -62,8 +62,8 @@ public class OrderService{
             int quantity = eachItem.getQuantity(); //양 계산
             int price = food.getPrice() * quantity; //총 음식 가격 계산
 
-            OrderItem orderItem = new OrderItem(orders, food, quantity, price);
-            orderItemRepository.save(orderItem); //일시저장  레스토랑과 음식 + 음식양 + 음식 가격 이 저장 되어 있음.
+            OrderItem orderItem = new OrderItem(orders, food, quantity, price); //orderitem 이 orders 를 갖고 있기 때문에 orders 까지 넣어준다
+            orderItemRepository.save(orderItem); //일시저장  레스토랑과 음식 + 음식양 + 음식 가격 이 저장 되어 있음. (쿼리문을 쌓아 놓는다)
 
             OrderResponseFoodsDto eachFoodResponse = new OrderResponseFoodsDto(food.getName(), quantity, price);
             foods.add(eachFoodResponse);
